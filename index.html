@@ -16,24 +16,59 @@
       color: #333;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
     }
 
-    .container {
-      background: white;
-      max-width: 500px;
+    header {
+      width: 100%;
+      background-color: #222;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6f61;
+    }
+
+    main {
+      max-width: 900px;
       width: 90%;
-      padding: 2rem 3rem;
+      background: white;
       border-radius: 10px;
+      padding: 2rem 3rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
+      margin: 2rem 0;
     }
 
-    h1 {
-      font-weight: 700;
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ff6f61;
+      padding-bottom: 0.3rem;
       margin-bottom: 1rem;
       color: #222;
     }
@@ -44,19 +79,230 @@
       color: #555;
     }
 
-    @media (max-width: 480px) {
-      .container {
+    /* Compétences - barres */
+    .skill {
+      margin: 1rem 0;
+    }
+
+    .skill-name {
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .skill-bar {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+    }
+
+    .skill-level {
+      height: 100%;
+      background-color: #ff6f61;
+      width: 0;
+      border-radius: 20px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Projets */
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #fafafa;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .project-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .project-description {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    /* Formulaire */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, textarea {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #ff6f61;
+      box-shadow: 0 0 5px #ff6f61;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 700;
+    }
+
+    button:hover {
+      background-color: #e75b50;
+    }
+
+    footer {
+      width: 100%;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      main {
         padding: 1.5rem 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Bienvenue sur mon portfolio</h1>
-    <p>Bonjour ! Je m'appelle <strong>[Gabriel Mole]</strong> et ceci est le début de mon portfolio en HTML.  
-       Je suis passionné par le développement web et je travaille chaque jour pour améliorer mes compétences.</p>
-  </div>
+  <header>
+    <h1>Mon Portfolio</h1>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>Bienvenue sur mon portfolio</h2>
+      <p>Bonjour ! Je m'appelle <strong>[Ton Prénom]</strong> et ceci est le début de mon portfolio en HTML.  
+         Je suis passionné par le développement web et je travaille chaque jour pour améliorer mes compétences.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Mes compétences</h2>
+      <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar"><div class="skill-level" data-level="90%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar"><div class="skill-level" data-level="85%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar"><div class="skill-level" data-level="75%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">React</div>
+        <div class="skill-bar"><div class="skill-level" data-level="60%"></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Mes projets</h2>
+      <div class="projects-container">
+        <div class="project-card" onclick="window.open('https://github.com/tonpseudo/projet1', '_blank')">
+          <div class="project-title">Projet 1</div>
+          <div class="project-description">Un site web responsive réalisé avec HTML et CSS.</div>
+        </div>
+        <div class="project-card" onclick="window.open('https://github.com/tonpseudo/projet2', '_blank')">
+          <div class="project-title">Projet 2</div>
+          <div class="project-description">Application JavaScript interactive avec gestion d'événements.</div>
+        </div>
+        <div class="project-card" onclick="window.open('https://github.com/tonpseudo/projet3', '_blank')">
+          <div class="project-title">Projet 3</div>
+          <div class="project-description">Projet React avec API externe et routing.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contactez-moi</h2>
+      <form id="contactForm">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required placeholder="Votre nom" />
+        
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required placeholder="Votre email" />
+        
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Votre message"></textarea>
+        
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 [Ton Prénom] - Tous droits réservés
+  </footer>
+
+  <script>
+    // Animation barres compétences
+    window.addEventListener('load', () => {
+      const skillLevels = document.querySelectorAll('.skill-level');
+      skillLevels.forEach(skill => {
+        const level = skill.getAttribute('data-level');
+        skill.style.width = level;
+      });
+    });
+
+    // Formulaire contact simple
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Récupération données
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (name && email && message) {
+        alert(`Merci ${name} ! Votre message a bien été envoyé.`);
+        form.reset();
+      } else {
+        alert('Veuillez remplir tous les champs.');
+      }
+    });
+  </script>
 </body>
 </html>
 
