@@ -8,6 +8,74 @@
 <body>
     <h1>Portfolio de gabriel Mole</h1>
     <p>Bonjour ! Je m'appelle Gabriel et ceci est le début de mon portfolio en HTML.</p>
-    Salut c'est moi tcoupi
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #00fff7;
+      font-family: 'Orbitron', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4rem;
+      text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 40px #00fff7;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      animation: flicker 3s infinite;
+    }
+
+    p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      text-align: center;
+      text-shadow: 0 0 5px #00fff7;
+      line-height: 1.5;
+    }
+
+    /* Futuristic button */
+    a.btn {
+      margin-top: 2rem;
+      padding: 1rem 3rem;
+      border: 2px solid #00fff7;
+      color: #00fff7;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #00fff7;
+    }
+
+    a.btn:hover {
+      background: #00fff7;
+      color: #0f2027;
+      box-shadow: 0 0 30px #00fff7, 0 0 50px #00fff7;
+      transform: scale(1.1);
+    }
+
+    /* Flicker animation */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 5px #00fff7,
+          0 0 10px #00fff7,
+          0 0 20px #00fff7,
+          0 0 40px #00fff7;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.6;
+        text-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>FUTURE SITE</h1>
+  <p>Bienvenue dans le futur du web. Découvrez un design épuré et technologique, pensé pour impressionner et captiver.</p>
+  <a href="#" class="btn">Explorer</a>
 </body>
 </html>
